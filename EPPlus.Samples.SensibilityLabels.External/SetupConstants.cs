@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SensibilityLabelHandler
 {
+    /// <summary>
+    /// Constants used for authenticating to your Azure application, setting label names and output files and folders.
+    /// </summary>
     public class SetupConstants
     {
         public const string _tenantId = "<The 'tenant id' for your Azure Application>";         //The tenent id from the Azure App Registration.
@@ -14,7 +17,7 @@ namespace SensibilityLabelHandler
         public const string _loginAccount = "your.name@yourdomain.com";                         //The account to used to login to your Azure application.
 
         public const string _outputPath = @"output";                                            //The output path, "the application base directory"/output by default.
-        public const string _labelSample1 = "MySensibilityLabel";                               //The name of the sensibility label to apply in sample 1. The label must exist in your Microsoft Purview sensibility labels list.
+        public const string _labelSample1 = "MySensibilityLabel";                               //The name of the sensibility label to apply in sample 1. The label must be present in your Microsoft Purview sensibility labels list.
         public const string _protectedSampleFile = @"Workbooks\MyProtectedExcelWorkbook.xlsx";  //The name of a sensibility label protected workbook to update in sample 2.
     }
 }

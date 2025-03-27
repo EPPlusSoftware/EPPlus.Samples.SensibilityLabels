@@ -14,8 +14,8 @@ namespace EPPlusSensibilityLabelHandler
     {
         private IFileEngine _fileEngine;
         /// <summary>
-        /// Initialize the MIP api and setup the authentication you want to use. 
-        /// The sample below is just an example, so you should set it up according to your organizations require
+        /// Initializes the MIP api and set up the authentication you want to use. 
+        /// The sample below is just an example of how to authorize to your App. You should configure it according to your organization's setup and requirements.
         /// </summary>
         /// <returns></returns>
         public async Task InitAsync()
@@ -49,9 +49,9 @@ namespace EPPlusSensibilityLabelHandler
             _fileEngine = await fileProfile.AddEngineAsync(engineSettings);
         }
         /// <summary>
-        /// Decrypts the stream and returns it to EPPlus unencrypted.
+        /// Decrypts the stream and returns it to EPPlus an unencrypted state.
         /// </summary>
-        /// <param name="packageStream">The package stream to handle. If the sensibility has any type of protection, the stream is encrypted and must be decrypted before returning it to EPPlus.</param>
+        /// <param name="packageStream">The package stream to process. If the sensibility label has any type of protection, the stream is encrypted and must be decrypted before returning it to EPPlus.</param>
         /// <param name="id">The unique id for the package.</param>
         /// <returns>Returns the decrypted package and the protection information to EPPlus.</returns>
         public async Task<IPackageInfo> DecryptPackageAsync(MemoryStream packageStream, string id)
@@ -77,7 +77,7 @@ namespace EPPlusSensibilityLabelHandler
         /// <summary>
         /// Applies a sensibility label and sets protection using the MIPS SDK.
         /// </summary>
-        /// <param name="package">The package stream, protection information and the sensibilty label to apply.</param>
+        /// <param name="package">The package stream, protection information and the sensibility label to apply.</param>
         /// <param name="id">The unique id for the package.</param>
         /// <returns></returns>
         public async Task<MemoryStream> ApplyLabelAndSavePackageAsync(IPackageInfo package, string id)
@@ -100,7 +100,7 @@ namespace EPPlusSensibilityLabelHandler
             return package.PackageStream;
         }
         /// <summary>
-        /// Returns all labels from available for the package.
+        /// Returns all labels available for the package.
         /// </summary>
         /// <param name="id">The unique id for the package.</param>
         /// <returns>A collection of labels</returns>
@@ -114,8 +114,8 @@ namespace EPPlusSensibilityLabelHandler
         /// <summary>
         /// Updates the labels from EPPlus with properties missing in the package, such as Name, Description and Color.
         /// </summary>
-        /// <param name="labels"></param>
-        /// <param name="Id"></param>
+        /// <param name="labels">The list of labels to update</param>
+        /// <param name="Id">The unique id for the package.</param>
         public void UpdateLabelList(IEnumerable<IExcelSensibilityLabel> labels, string Id)
         {
             var lblDict = LabelsDictionary;
